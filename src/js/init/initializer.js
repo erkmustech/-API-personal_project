@@ -3,7 +3,7 @@ import getIngredients from "../utils/ingredients.js";
 // import searchRecipe from "../handler/searchByName.js";
 // import fetchRegionApi from "/src/js/utils/helper.js";
 // import populateRegion from "../handler/searchByRegion.js";
-import { SEARCH_API, SEARCH_BY_REGION_API } from "../config.js";
+import { SEARCH_API, SEARCH_BY_REGION_API, FILTER_BY_ARE } from "../config.js";
 
 function searchRecipe(query) {
   const selectedRegion = document.querySelector(".selectByRegion");
@@ -66,7 +66,7 @@ function renderMeals(meals, region) {
     resultCon.appendChild(li);
 
     const recipePic = document.createElement("img");
-    recipePic.src = "/src/img/healthy_food.jpeg";
+    recipePic.src = `${meal.strMealThumb}/preview`;
     li.appendChild(recipePic);
 
     const a = document.createElement("a");
@@ -104,10 +104,8 @@ function renderMeals(meals, region) {
 
 async function showMealsByRegion() {
   const selectByRegion = document.querySelector(".selectByRegion");
-  console.log("selectByRegion", selectByRegion.value);
-  const res = await fetch(
-    `https://www.themealdb.com/api/json/v1/1/filter.php?a=${selectByRegion.value}`
-  );
+  // console.log("selectByRegion", selectByRegion.value);
+  const res = await fetch(`${FILTER_BY_ARE}${selectByRegion.value}`);
   const data = await res.json();
   console.log(data);
 }
