@@ -1,10 +1,9 @@
 "use strict";
 import getIngredients from "../utils/ingredients.js";
+// import searchRecipe from "../handler/searchByName.js";
 // import fetchRegionApi from "/src/js/utils/helper.js";
-
-const SEARCH_BY_REGION_API =
-  "https://www.themealdb.com/api/json/v1/1/list.php?a=list";
-const SEARCH_API = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
+// import populateRegion from "../handler/searchByRegion.js";
+import { SEARCH_API, SEARCH_BY_REGION_API } from "../config.js";
 
 function searchRecipe(query) {
   const selectedRegion = document.querySelector(".selectByRegion");
@@ -116,6 +115,7 @@ async function showMealsByRegion() {
 let searchTimeOutToken = 0;
 window.onload = () => {
   const searchField = document.querySelector(".search_field");
+  // const query = searchField.value;
   fetchRegionApi();
   searchField.onkeyup = () => {
     clearTimeout(searchTimeOutToken);
