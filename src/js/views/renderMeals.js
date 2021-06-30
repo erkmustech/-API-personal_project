@@ -1,7 +1,6 @@
 import getIngredients from "../views/renderIngredients.js";
 
 function renderMeals(meals, region) {
-  console.log("meals", meals);
   const recipeCon = document.querySelector(".recipeContainer");
   recipeCon.innerHTML = "";
   let resultCon = document.querySelector(".results");
@@ -29,52 +28,25 @@ function renderMeals(meals, region) {
     li.appendChild(recipePic);
 
     li.addEventListener("click", () => {
+      recipeCon.innerHTML = "";
       const ingredients = getIngredients(meal);
       const ingredientsCon = document.createElement("div");
+      recipeCon.appendChild(ingredientsCon);
+      ingredientsCon.classList = "ingredientContainer";
 
       ingredients.forEach((ingredient) => {
-        const ingredientsCon = document.createElement("div");
-
-        ingredientsCon.textContent = ingredient;
-        recipeCon.appendChild(ingredientsCon);
-        ingredients.classList = "ingredientContainer";
-        const description = document.createElement("div");
-        description.classList = "descriptionContainer";
-        const desc = document.createElement("div");
-        description.appendChild(desc);
-        const a = document.createElement("a");
-        const link = document.createTextNode("reference video here!");
-        a.appendChild(link);
-        a.href = "https://www.youtube.com/watch?v=2sX4fCgg-UI";
-        desc.appendChild(a);
-        description.textContent = meal.strInstructions;
-        recipeCon.appendChild(description);
-
-        // const  = document.createElement("div");
-        // for (let i = 0; i < ingredient.length; i++) {
-        //   tr.textContent = i;
-        //   // td.textContent = ingredient[i];
-        //   ingredientsCon.appendChild(tr);
-        // }
-        // for (let m = 0; m < 2; m++) {
-        //   let td = document.createElement("td");
-        //   td.textContent = ingredient;
-        // }
-
-        // recipeCon.appendChild(ingredientsCon);
-        // ingredients.classList = "ingredientContainer";
-        // const description = document.createElement("div");
-        // description.classList = "descriptionContainer";
-        // const desc = document.createElement("div");
-        // description.appendChild(desc);
-        // const a = document.createElement("a");
-        // const link = document.createTextNode("reference video here!");
-        // a.appendChild(link);
-        // a.href = "https://www.youtube.com/watch?v=2sX4fCgg-UI";
-        // desc.appendChild(a);
-        // description.textContent = meal.strInstructions;
-        // recipeCon.appendChild(description);
+        console.log("ingredient", ingredient);
+        const ingredientList = document.querySelector(".ingredientList");
+        const ingredientItem = document.createElement("li");
+        ingredientItem.textContent = ingredient;
+        console.log("ingredientItem", ingredientItem);
+        ingredientList.appendChild(ingredientItem);
       });
+
+      const description = document.createElement("div");
+      description.classList = "descriptionContainer";
+      description.textContent = meal.strInstructions;
+      recipeCon.appendChild(description);
     });
   });
 }

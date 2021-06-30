@@ -1,18 +1,18 @@
-// function populateRegion(regions) {
-//   const selectList = document.querySelector(".selectByRegion");
-//   const searchField = document.querySelector(".search_field");
-//   regions.forEach((region) => {
-//     const option = document.createElement("option");
-//     selectList.appendChild(option);
-//     option.value = region.strArea;
-//     option.textContent = region.strArea;
-//   });
-//   selectList.addEventListener("change", async (e) => {
-//     if (searchField.value.trim().length === 0) {
-//       return;
-//     }
-//     searchRecipe(searchField.value);
-//   });
-// }
+import { SEARCH_API } from "../config.js";
+import renderMeals from "../views/renderMeals.js";
 
-// export default populateRegion();
+function searchByRegion(query) {
+  console.log("query", query);
+  const selectedRegion = document.querySelector(".selectByRegion");
+  const url = `${SEARCH_API}${query}`;
+  fetch(url)
+    .then((response) => response.json())
+    .then((jsonData) => {
+      renderMeals(jsonData.meals, selectedRegion.value);
+    })
+    .catch((error) => {
+      console.log("error", error);
+      renderMeals([]);
+    });
+}
+export default searchByRegion;
