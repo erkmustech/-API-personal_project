@@ -37,6 +37,9 @@ function renderMeals(meals, region) {
       ingredientsCon.classList = "ingredientContainer";
 
       const ingList = document.createElement("div");
+      const ingTitle = document.createElement("h3");
+      ingTitle.textContent = "INGREDIENTS";
+      ingList.appendChild(ingTitle);
       const mealImg = document.createElement("div");
       ingredientsCon.appendChild(ingList);
       ingredientsCon.appendChild(mealImg);
@@ -56,7 +59,12 @@ function renderMeals(meals, region) {
       ingredientsCon.appendChild(mealImg);
 
       const description = document.createElement("div");
-      description.textContent = meal.strInstructions;
+      const descTitle = document.createElement("h3");
+      descTitle.textContent = "DESCRIPTION";
+      description.appendChild(descTitle);
+      const desText = document.createElement("div");
+      description.appendChild(desText);
+      desText.textContent = meal.strInstructions;
       description.classList = "descriptionContainer";
       ingredientsCon.classList = "ingredientContainer";
       recipeCon.appendChild(ingredientsCon);

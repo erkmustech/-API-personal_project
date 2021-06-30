@@ -70,6 +70,13 @@ h2 {
   display: flex;
   justify-content: space-around;
 }
+
+h3 {
+  font-family: Georgia, sans-serif;
+  font-size: 2rem;
+  color: #2c5542;
+  margin-bottom: 2rem;
+}
 .search {
   background-color: #fff;
   border-radius: 2rem;
