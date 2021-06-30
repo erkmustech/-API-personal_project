@@ -18,4 +18,4 @@ export function fetchRegionApi(url) {
     });
 }
 
-export default fetchRegionApi(url);
+export default fetchRegionApi;

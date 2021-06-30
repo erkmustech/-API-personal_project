@@ -1,5 +1,5 @@
-import { SEARCH_API, SEARCH_BY_REGION_API } from "../config.js";
-import { query } from "../init/initializer.js";
+import { SEARCH_API } from "../config.js";
+import renderMeals from "../views/renderMeals.js";
 
 function searchRecipe(query) {
   const selectedRegion = document.querySelector(".selectByRegion");
@@ -13,4 +13,4 @@ function searchRecipe(query) {
       renderMeals([]);
     });
 }
-export default searchRecipe(query);
+export default searchRecipe;

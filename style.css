@@ -94,12 +94,12 @@ h1 {
 svg,
 .search_icon {
   width: 3rem;
-  height: 1.8rem;
-  fill: red;
+  height: 2rem;
+  fill: currentColor;
 }
 
 .selectByRegion {
-  background-image: linear-gradient(to right bottom, #fbdb89, #f48982);
+  background-image: linear-gradient(to right bottom, #f3b824, #f48982);
   border: none;
   height: 4rem;
   text-transform: uppercase;
@@ -127,7 +127,7 @@ svg,
   background-image: linear-gradient(to right bottom, #f48982, #fbdb89);
 }
 
-.search_btn {
+.reset_btn {
   font-weight: 400;
   font-family: inherit;
   width: 10rem;
