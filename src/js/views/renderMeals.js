@@ -2,7 +2,7 @@ import getIngredients from "../views/renderIngredients.js";
 
 function renderMeals(meals, region) {
   const recipeCon = document.querySelector(".recipeContainer");
-  recipeCon.innerHTML = "";
+  // recipeCon.innerHTML = "";
   let resultCon = document.querySelector(".results");
   resultCon.innerHTML = "";
   if (region !== "all") {
@@ -24,6 +24,7 @@ function renderMeals(meals, region) {
     liText.appendChild(recipeArea);
 
     const recipePic = document.createElement("img");
+    recipePic.classList = "resultListPic";
     recipePic.src = `${meal.strMealThumb}/preview`;
     li.appendChild(recipePic);
 
@@ -31,21 +32,34 @@ function renderMeals(meals, region) {
       recipeCon.innerHTML = "";
       const ingredients = getIngredients(meal);
       const ingredientsCon = document.createElement("div");
+
       recipeCon.appendChild(ingredientsCon);
       ingredientsCon.classList = "ingredientContainer";
 
+      const ingList = document.createElement("div");
+      const mealImg = document.createElement("div");
+      ingredientsCon.appendChild(ingList);
+      ingredientsCon.appendChild(mealImg);
+
       ingredients.forEach((ingredient) => {
-        console.log("ingredient", ingredient);
-        const ingredientList = document.querySelector(".ingredientList");
-        const ingredientItem = document.createElement("li");
+        const ingredientItem = document.createElement("p");
         ingredientItem.textContent = ingredient;
-        console.log("ingredientItem", ingredientItem);
-        ingredientList.appendChild(ingredientItem);
+        ingList.appendChild(ingredientItem);
+        ingredientsCon.appendChild(ingList);
       });
 
+      const recipePicBig = document.createElement("img");
+      // ingredientsCon.appendChild(recipePicBig);
+      recipePicBig.classList = "recipePic_Big";
+      recipePicBig.src = `${meal.strMealThumb}/preview`;
+      mealImg.appendChild(recipePicBig);
+      ingredientsCon.appendChild(mealImg);
+
       const description = document.createElement("div");
-      description.classList = "descriptionContainer";
       description.textContent = meal.strInstructions;
+      description.classList = "descriptionContainer";
+      ingredientsCon.classList = "ingredientContainer";
+      recipeCon.appendChild(ingredientsCon);
       recipeCon.appendChild(description);
     });
   });
