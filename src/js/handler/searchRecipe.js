@@ -2,6 +2,7 @@ import { SEARCH_API } from "../config.js";
 import renderMeals from "../views/renderMeals.js";
 
 function searchRecipe(query) {
+  console.log("query", query);
   const selectedRegion = document.querySelector(".selectByRegion");
   const url = `${SEARCH_API}${query}`;
   fetch(url)
@@ -10,6 +11,7 @@ function searchRecipe(query) {
       renderMeals(jsonData.meals, selectedRegion.value);
     })
     .catch((error) => {
+      console.log("error", error);
       renderMeals([]);
     });
 }
