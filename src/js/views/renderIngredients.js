@@ -12,7 +12,6 @@ function getIngredients(meal) {
     }
   }
   return ingredientsList;
-  console.log(ingredientsList);
 }
 
 export default getIngredients;

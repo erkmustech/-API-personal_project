@@ -52,7 +52,6 @@ function renderMeals(meals, region) {
       });
 
       const recipePicBig = document.createElement("img");
-      // ingredientsCon.appendChild(recipePicBig);
       recipePicBig.classList = "recipePic_Big";
       recipePicBig.src = `${meal.strMealThumb}/preview`;
       mealImg.appendChild(recipePicBig);
