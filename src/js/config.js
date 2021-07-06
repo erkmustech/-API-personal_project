@@ -6,3 +6,4 @@ export const SEARCH_API =
   "https://www.themealdb.com/api/json/v1/1/search.php?s=";
 export const FILTER_BY_AREA =
   "https://www.themealdb.com/api/json/v1/1/filter.php?a=";
+export const ING_PIC_URL = "https://www.themealdb.com/images/ingredients/";

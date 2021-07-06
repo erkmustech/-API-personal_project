@@ -8,7 +8,7 @@ function getIngredients(meal) {
   const ingredientsList = [];
   for (let i = 0; i < ingredients.length; i++) {
     if (ingredients.indexOf(i) == measures.indexOf(i)) {
-      ingredientsList.push(ingredients[i][1] + ":    " + measures[i][1]);
+      ingredientsList.push(ingredients[i][1] + ":" + measures[i][1]);
     }
   }
   return ingredientsList;
