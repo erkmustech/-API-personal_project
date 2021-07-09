@@ -1,8 +1,10 @@
-async function renderMealsByArea() {
-  const selectByRegion = document.querySelector(".selectByRegion");
-  const res = await fetch(`${SEARCH_API}${searchField.value}`);
-  const data = await res.json();
-  console.log("data", data);
+import renderMeals from "./renderMeals";
+
+async function renderMealsByArea(meals, region) {
+  if (region !== "all") {
+    meals = meals.filter((meal) => meal.strArea === region);
+    renderMeals();
+  }
 }
 
 export default renderMealsByArea;

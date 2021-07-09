@@ -1,9 +1,7 @@
 "use strict";
 import searchRecipe from "../handler/searchRecipe.js";
 import populateRegion from "../handler/populateRegions.js";
-import renderMealsByArea from "../views/renderMealsByArea.js";
 import { COUNTRIES_LIST_API } from "../config.js";
-import clearDOMElement from "../utils/clearDOMElement.js";
 
 function fetchAreaAPI(url) {
   fetch(COUNTRIES_LIST_API)
@@ -12,7 +10,7 @@ function fetchAreaAPI(url) {
       populateRegion(jsonData.meals);
     })
     .catch((error) => {
-      renderMealsByArea([]);
+      console.log(error);
     });
 }
 
@@ -24,7 +22,7 @@ window.onload = () => {
 
   fetchAreaAPI();
 
-  searchField.onkeyup = (event) => {
+  searchField.onkeyup = () => {
     clearTimeout(searchTimeOutToken);
     if (searchField.value.trim().length === 0) {
       return;
@@ -33,10 +31,12 @@ window.onload = () => {
       searchRecipe(searchField.value);
     }, 500);
   };
-  form.addEventListener("submit", handleForm);
-  resetBtn.addEventListener("click", clearDOMElement);
-};
 
-function handleForm(event) {
-  event.preventDefault();
-}
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+  });
+
+  resetBtn.addEventListener("click", () => {
+    searchField.value = "";
+  });
+};
