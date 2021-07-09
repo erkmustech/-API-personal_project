@@ -9,6 +9,7 @@ window.onload = () => {
   const searchField = document.querySelector(".search_field");
   const resetBtn = document.querySelector(".reset_btn");
   const recipeCon = document.querySelector(".recipeContainer");
+  const resultCon = document.querySelector(".resultContainer");
 
   fetchAreaAPI();
 
@@ -29,5 +30,6 @@ window.onload = () => {
   resetBtn.addEventListener("click", () => {
     searchField.value = "";
     recipeCon.innerHTML = "";
+    resultCon.innerHTML = "";
   });
 };

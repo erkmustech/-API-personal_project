@@ -33,4 +33,5 @@ function renderMeals(meals, region) {
     });
   });
 }
+
 export default renderMeals;
