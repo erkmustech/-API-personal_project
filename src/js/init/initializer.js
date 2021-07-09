@@ -2,17 +2,15 @@
 
 import fetchAreaAPI from "../handler/getAreaAPI.js";
 import searchRecipe from "../handler/searchRecipe.js";
+const form = document.querySelector(".search");
+const searchField = document.querySelector(".search_field");
+const resetBtn = document.querySelector(".reset_btn");
+const recipeCon = document.querySelector(".recipeContainer");
+const resultCon = document.querySelector(".resultContainer");
 
 let searchTimeOutToken = 0;
 window.onload = () => {
-  const form = document.querySelector(".search");
-  const searchField = document.querySelector(".search_field");
-  const resetBtn = document.querySelector(".reset_btn");
-  const recipeCon = document.querySelector(".recipeContainer");
-  const resultCon = document.querySelector(".resultContainer");
-
   fetchAreaAPI();
-
   searchField.onkeyup = () => {
     clearTimeout(searchTimeOutToken);
     if (searchField.value.trim().length === 0) {

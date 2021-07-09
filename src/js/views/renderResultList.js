@@ -1,8 +1,7 @@
+import fixEle from "../handler/fixElement.js";
 import renderRecipeDet from "./renderRecipeDet.js";
 
 function renderMeals(meals, region) {
-  const recipeCon = document.querySelector(".recipeContainer");
-  // recipeCon.innerHTML = "";
   let resultCon = document.querySelector(".results");
   resultCon.innerHTML = "";
   if (region !== "all") {
@@ -30,6 +29,7 @@ function renderMeals(meals, region) {
 
     li.addEventListener("click", () => {
       renderRecipeDet(meal);
+      fixEle();
     });
   });
 }

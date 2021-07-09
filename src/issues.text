@@ -5,4 +5,7 @@
 5. when press enter key after entered the search filed, it back to reload. 
 6. user be able to bookmark their loved recipes and cancel it. 
 
-
+=====
+last problems;
+The leftmost column is scrollable by the browser's main scroll bar parallely.
+When content of right container reaches end than it stops scrolling while the left container  keeps on Scrolling.

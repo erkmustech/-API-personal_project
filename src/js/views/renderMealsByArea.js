@@ -1,4 +1,4 @@
-import renderMeals from "./renderMeals";
+import renderMeals from "./renderResultList";
 
 async function renderMealsByArea(meals, region) {
   if (region !== "all") {

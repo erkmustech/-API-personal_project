@@ -1,5 +1,5 @@
 import { SEARCH_API } from "../config.js";
-import renderMeals from "../views/renderMeals.js";
+import renderMeals from "../views/renderResultList.js";
 
 function searchRecipe(query) {
   console.log("query", query);

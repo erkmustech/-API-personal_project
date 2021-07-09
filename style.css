@@ -163,6 +163,7 @@ svg,
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-items: initial;
   width: 100%;
   margin-top: 2rem;
   padding: 2rem;
@@ -182,7 +183,7 @@ svg,
   flex-direction: column;
   width: 80%;
   align-items: center;
-  height: auto;
+  height: 100%;
   margin: 2rem;
   box-shadow: 5px 5px 10px rgb(12, 12, 12);
   padding: 5rem;
@@ -211,19 +212,19 @@ table {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: #f5a56d solid 0.5px;
+  background-color: #eb985d;
   margin: 1rem 1px;
-  transition: all 0.3s;
+  transition: all 0.2s;
   width: 120px;
   height: auto;
   padding: 1rem 1px;
   border-radius: 1rem;
+  box-shadow: 1rem 1rem 1rem black;
 }
 table:hover {
   background-color: #eb985d;
-  box-shadow: 1rem 1rem 2rem black;
-  transform: translateY(-0.5rem), scale(1.2);
-  border-radius: 1rem;
+  box-shadow: 0rem 0rem 0.2rem rgb(7, 7, 7);
+  transform: translateY(2px);
 }
 
 .ingredientContainer {
@@ -310,6 +311,14 @@ li:hover {
 .hidden {
   display: none;
   opacity: 0;
+}
+
+.fixed {
+  overflow: auto;
+  height: 100%;
+  /* display: flex;
+  align-items: center; */
+  offset-block-end: auto;
 }
 
 @media only screen and (max-width: 600px) {
