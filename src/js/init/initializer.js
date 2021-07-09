@@ -1,24 +1,14 @@
 "use strict";
-import searchRecipe from "../handler/searchRecipe.js";
-import populateRegion from "../handler/populateRegions.js";
-import { COUNTRIES_LIST_API } from "../config.js";
 
-function fetchAreaAPI(url) {
-  fetch(COUNTRIES_LIST_API)
-    .then((response) => response.json())
-    .then((jsonData) => {
-      populateRegion(jsonData.meals);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-}
+import fetchAreaAPI from "../handler/getAreaAPI.js";
+import searchRecipe from "../handler/searchRecipe.js";
 
 let searchTimeOutToken = 0;
 window.onload = () => {
   const form = document.querySelector(".search");
   const searchField = document.querySelector(".search_field");
   const resetBtn = document.querySelector(".reset_btn");
+  const recipeCon = document.querySelector(".recipeContainer");
 
   fetchAreaAPI();
 
@@ -38,5 +28,6 @@ window.onload = () => {
 
   resetBtn.addEventListener("click", () => {
     searchField.value = "";
+    recipeCon.innerHTML = "";
   });
 };
