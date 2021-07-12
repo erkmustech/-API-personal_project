@@ -5,16 +5,10 @@ const main = document.querySelector(".main");
 
 function fixEle() {
   console.log("scroll Y", scrollY);
-
-  if (
-    window.scrollY >= 500
-    // imgCon.height + ingrCon.height + descriptionCon.height
-  ) {
-    console.log("scorll Y is over 500");
-    main.classList.add("fixed");
-    recipeCon.pageYOffset = "0";
+  if (this.scrollTop() > 425) {
+    recipeCon.style = ("margin-top", recipeCon.scrollTop() - 425);
   } else {
-    recipeCon.classList.remove("fixed");
+    recipeCon.style = ("margin-top", recipeCon.scrollTop() - 0);
   }
 }
 
@@ -33,3 +27,12 @@ export default fixEle;
 //     navbar.classList.remove("sticky");
 //   }
 // }
+
+// $(window).scroll(function(){
+//     if($(this).scrollTop()>425) {
+//         $("#theRelative").css("margin-top",$(this).scrollTop()-425);
+//         }   else {
+//             $("#theRelative").css("margin-top",$(this).scrollTop()-0);
+//             }
+//         });
+//         });
