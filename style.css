@@ -26,6 +26,14 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+.fas,
+.fa-heart {
+  font-size: 20px;
+  display: flex;
+  justify-self: end;
+}
+
 .container {
   display: flex;
   margin: 0 auto;
@@ -122,6 +130,11 @@ svg,
   fill: currentColor;
 }
 
+.marked {
+  color: red;
+  transform: scale(1.1);
+}
+
 .selectByRegion {
   background-image: linear-gradient(to right bottom, #f3b824, #f48982);
   border: none;
@@ -214,7 +227,7 @@ table {
   align-items: center;
   background-color: #eb985d;
   margin: 1rem 1px;
-  transition: all 0.2s;
+  transition: all 0.01s;
   width: 120px;
   height: auto;
   padding: 1rem 1px;
@@ -274,7 +287,7 @@ ul {
 li {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   height: auto;
   width: 100%;
   align-items: center;

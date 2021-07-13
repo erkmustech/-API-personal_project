@@ -10,7 +10,6 @@ function renderRecipeDet(meal) {
   const mealName = document.createElement("h1");
   mealName.classList = "mealName";
   mealName.textContent = meal.strMeal;
-  console.log("mealName", mealName);
   imgCon.appendChild(mealName);
   imgCon.classList = "img-con";
   const recipePicBig = document.createElement("img");

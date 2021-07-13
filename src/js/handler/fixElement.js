@@ -1,20 +1,20 @@
-const recipeCon = document.querySelector(".recipeContainer");
-const main = document.querySelector(".main");
+// const recipeCon = document.querySelector(".recipeContainer");
+// const main = document.querySelector(".main");
 
-// const topOfRecCon = recipeCon.offsetTop;
+// // const topOfRecCon = recipeCon.offsetTop;
 
-function fixEle() {
-  console.log("scroll Y", scrollY);
-  if (this.scrollTop() > 425) {
-    recipeCon.style = ("margin-top", recipeCon.scrollTop() - 425);
-  } else {
-    recipeCon.style = ("margin-top", recipeCon.scrollTop() - 0);
-  }
-}
+// function fixEle() {
+//   console.log("scroll Y", scrollY);
+//   if (this.scrollTop() > 425) {
+//     recipeCon.style = ("margin-top", recipeCon.scrollTop() - 425);
+//   } else {
+//     recipeCon.style = ("margin-top", recipeCon.scrollTop() - 0);
+//   }
+// }
 
-window.addEventListener("scroll", fixEle);
+// window.addEventListener("scroll", fixEle);
 
-export default fixEle;
+// export default fixEle;
 
 // var nav = document.getElementById("nav");
 

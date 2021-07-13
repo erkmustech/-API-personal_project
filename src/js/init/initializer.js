@@ -28,6 +28,6 @@ window.onload = () => {
   resetBtn.addEventListener("click", () => {
     searchField.value = "";
     recipeCon.innerHTML = "";
-    resultCon.innerHTML = "";
+    // resultCon.innerHTML = "";
   });
 };

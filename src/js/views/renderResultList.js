@@ -1,12 +1,14 @@
-import fixEle from "../handler/fixElement.js";
+// import fixEle from "../handler/fixElement.js";
 import renderRecipeDet from "./renderRecipeDet.js";
+import markHandler from "../handler/markHandler.js";
 
 function renderMeals(meals, region) {
-  let resultCon = document.querySelector(".results");
+  const resultCon = document.querySelector(".results");
   resultCon.innerHTML = "";
   if (region !== "all") {
     meals = meals.filter((meal) => meal.strArea === region);
   }
+  const markedRecipe = [];
   meals.forEach((meal) => {
     const li = document.createElement("li");
     resultCon.appendChild(li);
@@ -27,9 +29,25 @@ function renderMeals(meals, region) {
     recipePic.src = `${meal.strMealThumb}/preview`;
     li.appendChild(recipePic);
 
+    const bookMark = document.createElement("i");
+    bookMark.classList = "fas fa-heart";
+    bookMark.addEventListener("click", () => {
+      if (!bookMark.classList.contains("marked")) {
+        bookMark.classList.add("marked");
+        markedRecipe.push(meal.strMeal);
+      } else {
+        bookMark.classList.remove("marked");
+        markedRecipe.pop();
+      }
+    });
+
+    console.log(markedRecipe);
+
+    li.appendChild(bookMark);
+
     li.addEventListener("click", () => {
       renderRecipeDet(meal);
-      fixEle();
+      // fixEle();
     });
   });
 }
