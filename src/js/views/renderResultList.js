@@ -42,6 +42,9 @@ function renderMeals(meals, region) {
     });
 
     console.log(markedRecipe);
+    const recipe_number = document.querySelector(".recipe_number");
+    recipe_number.innerHTML = `find ${meals.length} recipe. click the left side
+    list and find descriptions here!`;
 
     li.appendChild(bookMark);
 
