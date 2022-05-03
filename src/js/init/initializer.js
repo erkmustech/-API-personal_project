@@ -17,7 +17,7 @@ window.onload = () => {
       return;
     }
     searchTimeOutToken = setTimeout(() => {
-      searchRecipe(searchField.value);
+      searchRecipe(searchField.value); ``
     }, 500);
   };
 
@@ -28,6 +28,6 @@ window.onload = () => {
   resetBtn.addEventListener("click", () => {
     searchField.value = "";
     recipeCon.innerHTML = "";
-    // resultCon.innerHTML = "";
+    resultCon.innerHTML = "";
   });
 };

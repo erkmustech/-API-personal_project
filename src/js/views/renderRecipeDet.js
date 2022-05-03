@@ -6,26 +6,39 @@ function renderRecipeDet(meal) {
   recipeCon.innerHTML = "";
   const ingredients = getIngredients(meal);
 
+  const description = document.createElement("div");
+  const descTitle = document.createElement("h3");
+  descTitle.textContent = "DESCRIPTION";
+  description.appendChild(descTitle);
+  const desText = document.createElement("div");
+  description.appendChild(desText);
+  desText.textContent = meal.strInstructions;
+  description.classList = "descriptionContainer";
+
   const imgCon = document.createElement("div");
-  const mealName = document.createElement("h1");
-  mealName.classList = "mealName";
-  mealName.textContent = meal.strMeal;
-  imgCon.appendChild(mealName);
+  // const mealName = document.createElement("h1");
+  // mealName.classList = "mealName";
+  // mealName.textContent = meal.strMeal;
+  // imgCon.appendChild(mealName);
   imgCon.classList = "img-con";
   const recipePicBig = document.createElement("img");
   recipePicBig.classList = "recipePic_Big";
   recipePicBig.src = `${meal.strMealThumb}/preview`;
   imgCon.appendChild(recipePicBig);
-  recipeCon.appendChild(imgCon);
 
   const ingredientsCon = document.createElement("div");
   recipeCon.appendChild(ingredientsCon);
   ingredientsCon.classList = "ingredientContainer";
   const ingTitle = document.createElement("h3");
   ingTitle.textContent = "INGREDIENTS";
-  recipeCon.appendChild(ingTitle);
   recipePicBig.src = `${meal.strMealThumb}/preview`;
   imgCon.appendChild(recipePicBig);
+
+  recipeCon.appendChild(imgCon);
+  recipeCon.appendChild(description);
+  ingredientsCon.classList = "ingredientContainer";
+  recipeCon.appendChild(ingTitle);
+  recipeCon.appendChild(ingredientsCon);
 
   ingredients.forEach((ingredient) => {
     const ingredientItem = document.createElement("table");
@@ -44,18 +57,6 @@ function renderRecipeDet(meal) {
     ingPic.src = `${ING_PIC_URL}/${nameOfIng}-Small.png`;
     ingredientItem.appendChild(ingPic);
   });
-
-  const description = document.createElement("div");
-  const descTitle = document.createElement("h3");
-  descTitle.textContent = "DESCRIPTION";
-  description.appendChild(descTitle);
-  const desText = document.createElement("div");
-  description.appendChild(desText);
-  desText.textContent = meal.strInstructions;
-  description.classList = "descriptionContainer";
-  ingredientsCon.classList = "ingredientContainer";
-  recipeCon.appendChild(ingredientsCon);
-  recipeCon.appendChild(description);
 }
 
 export default renderRecipeDet;
