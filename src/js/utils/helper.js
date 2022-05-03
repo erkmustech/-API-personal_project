@@ -1,4 +1,4 @@
-import { SEARCH_BY_REGION_API, SEARCH_API } from "../config.js";
+import { COUNTRIES_LIST_API, SEARCH_API } from "../config.js";
 import populateRegion from "../views/renderMeals.js";
 import searchByRegion from "../handler/searchByRegion.js";
 
@@ -8,7 +8,7 @@ export const fetchApi = async () => {
 };
 
 export function fetchRegionApi(url) {
-  fetch(SEARCH_BY_REGION_API)
+  fetch(COUNTRIES_LIST_API)
     .then((response) => response.json())
     .then((jsonData) => {
       populateRegion(jsonData.meals);
@@ -18,4 +18,4 @@ export function fetchRegionApi(url) {
     });
 }
 
-export default fetchRegionApi(url);
+export default fetchRegionApi;
